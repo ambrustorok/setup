@@ -20,6 +20,15 @@ call plug#end()
 " Enable true color support
 set termguicolors
 
+" Set background to dark
+set background=dark
+
+" Clear highlights to prevent old colors from sticking
+hi clear
+
+" Use the 'darker' style of onedark
+let g:onedark_config = {'style': 'darker'}
+
 " Set colorscheme
 colorscheme onedark
 
