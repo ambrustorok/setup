@@ -1,39 +1,77 @@
 " Place this file in ~/.config/nvim/init.vim
-" Run this to enable plugins
+" Run this to enable plugins (install vim-plug)
 "   `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 " then run this from within nvim
 "   `:PlugInstall`
 
-" ...
-
-" Enable plugin system
+" =========================
+" Plugin Manager: vim-plug
+" =========================
 call plug#begin('~/.vim/plugged')
 
-" Colorscheme for better syntax highlighting
+" Onedark colorscheme
 Plug 'joshdick/onedark.vim'
 
-" Improved YAML syntax highlighting
+" YAML syntax highlighting
 Plug 'stephpy/vim-yaml'
+
+" File tree and icons
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 
 call plug#end()
 
-" Enable true color support
-set termguicolors
+" =========================
+" General Settings
+" =========================
+set number              " Show line numbers
+set mouse=              " Disable mouse support
+set termguicolors       " Enable true color support
+set background=dark     " Use dark background
 
-" Set background to dark
-set background=dark
-
-" Clear highlights to prevent old colors from sticking
+" =========================
+" Colorscheme: Onedark (darker style)
+" =========================
 hi clear
-
-" Use the 'darker' style of onedark
 let g:onedark_config = {'style': 'darker'}
-
-" Set colorscheme
 colorscheme onedark
 
-" Show line numbers
-set number
+" =========================
+" nvim-tree.lua Setup
+" =========================
 
-" Disable mouse support
-set mouse=
+" Recommended: Don't show netrw (default file explorer)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+" Basic setup for nvim-tree (Lua block)
+lua << EOF
+require("nvim-tree").setup({
+  view = {
+    width = 30,
+    side = "left",
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    },
+  },
+})
+EOF
+
+" Keymap: <leader>e toggles the file tree
+nnoremap <leader>e :NvimTreeToggle<CR>
+
+" =========================
+" Optional: Open nvim-tree on startup
+" =========================
+" autocmd VimEnter * NvimTreeOpen
+
+" =========================
+" End of config
+" =========================
