@@ -9,8 +9,8 @@
 " Enable plugin system
 call plug#begin('~/.vim/plugged')
 
-" Gruvbox colorscheme for better syntax highlighting
-Plug 'morhetz/gruvbox'
+" Colorscheme for better syntax highlighting
+Plug 'joshdick/onedark.vim'
 
 " Improved YAML syntax highlighting
 Plug 'stephpy/vim-yaml'
@@ -21,7 +21,7 @@ call plug#end()
 set termguicolors
 
 " Set colorscheme
-colorscheme gruvbox
+colorscheme onedark
 
 " Show line numbers
 set number
