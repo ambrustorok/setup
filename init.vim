@@ -3,6 +3,27 @@
 "   `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 " then run this from within nvim
 "   `:PlugInstall`
+"
+" =========================
+" Language Server Installation (optional but recommended)
+" =========================
+" After installing plugins, install these language servers for better features:
+"
+" Python language server (using pip, not npm!):
+"   pip install pyright
+" OR alternatively:
+"   pip install python-lsp-server
+"
+" JavaScript/TypeScript language server:
+"   npm install -g typescript typescript-language-server
+"
+" HTML language server:
+"   npm install -g vscode-langservers-extracted
+"
+" Alternative Python options:
+" - Install in virtual environment or use system package manager
+" - On some systems: `sudo apt install python3-pylsp` or `brew install pyright`
+"
 " =========================
 " Plugin Manager: vim-plug
 " =========================
@@ -106,7 +127,7 @@ local lspconfig = require('lspconfig')
 -- Python LSP (pyright)
 lspconfig.pyright.setup{}
 
--- JavaScript/TypeScript
+-- JavaScript/TypeScript LSP
 lspconfig.ts_ls.setup{}
 
 -- HTML LSP (for JTML files)
