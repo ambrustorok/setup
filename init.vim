@@ -9,6 +9,9 @@
 " =========================
 " After installing plugins, install these language servers for better features:
 "
+" Create a python venv
+" python -m venv ~/.venvs/nvim
+"
 " Python language server (using pip, not npm!):
 "   pip install pyright
 " OR alternatively:
@@ -27,6 +30,10 @@
 " =========================
 " Plugin Manager: vim-plug
 " =========================
+
+" set nvim will use this python env
+let g:python3_host_prog = expand('~/.venvs/nvim/bin/python')
+
 call plug#begin('~/.vim/plugged')
 " Onedark colorscheme
 Plug 'joshdick/onedark.vim'
